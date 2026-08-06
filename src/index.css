@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* आनंद संगीत महाविद्यालय — Indian Classical Art Design System
+   All colors HSL. Saffron, deep maroon, gold, ivory.
+*/
+
+@layer base {
+  :root {
+    --background: 39 60% 97%;
+    --foreground: 15 50% 12%;
+
+    --card: 38 50% 98%;
+    --card-foreground: 15 50% 12%;
+
+    --popover: 38 50% 98%;
+    --popover-foreground: 15 50% 12%;
+
+    /* Saffron primary */
+    --primary: 22 90% 48%;
+    --primary-foreground: 39 60% 97%;
+    --primary-glow: 30 95% 60%;
+
+    /* Deep maroon secondary */
+    --secondary: 350 65% 28%;
+    --secondary-foreground: 39 60% 97%;
+
+    --muted: 35 30% 92%;
+    --muted-foreground: 20 20% 38%;
+
+    /* Gold accent */
+    --accent: 42 75% 52%;
+    --accent-foreground: 15 50% 12%;
+
+    --destructive: 0 75% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 30% 85%;
+    --input: 35 30% 88%;
+    --ring: 22 90% 48%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(22 90% 48% / 0.92), hsl(350 65% 28% / 0.85));
+    --gradient-warm: linear-gradient(135deg, hsl(22 90% 48%), hsl(42 85% 55%));
+    --gradient-royal: linear-gradient(135deg, hsl(350 65% 28%), hsl(350 70% 18%));
+    --gradient-gold: linear-gradient(135deg, hsl(42 75% 52%), hsl(38 90% 65%));
+    --gradient-soft: linear-gradient(180deg, hsl(39 60% 97%), hsl(35 50% 92%));
+
+    /* Shadows */
+    --shadow-warm: 0 20px 50px -15px hsl(22 90% 48% / 0.35);
+    --shadow-royal: 0 20px 50px -15px hsl(350 65% 28% / 0.4);
+    --shadow-card: 0 8px 30px -8px hsl(15 50% 12% / 0.12);
+    --shadow-glow: 0 0 40px hsl(42 75% 52% / 0.4);
+
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 15 30% 8%;
+    --foreground: 39 60% 95%;
+    --card: 15 30% 10%;
+    --card-foreground: 39 60% 95%;
+    --popover: 15 30% 10%;
+    --popover-foreground: 39 60% 95%;
+    --primary: 30 95% 60%;
+    --primary-foreground: 15 50% 12%;
+    --secondary: 350 50% 35%;
+    --secondary-foreground: 39 60% 95%;
+    --muted: 15 20% 18%;
+    --muted-foreground: 35 15% 70%;
+    --accent: 42 75% 55%;
+    --accent-foreground: 15 50% 12%;
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 39 60% 95%;
+    --border: 15 20% 20%;
+    --input: 15 20% 20%;
+    --ring: 30 95% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-hindi {
+    font-family: 'Tiro Devanagari Hindi', serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .mandala-bg {
+    background-image: radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.08) 0%, transparent 60%);
+  }
+
+  .pattern-dots {
+    background-image: radial-gradient(hsl(var(--secondary) / 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .gold-divider {
+    height: 3px;
+    background: var(--gradient-gold);
+    border-radius: 999px;
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
