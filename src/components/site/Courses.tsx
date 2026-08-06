@@ -1,4 +1,5 @@
 import { Music, Palette, Sparkles } from "lucide-react";
+import { SITE_NAME_EN } from "@/lib/seo-config";
 import music from "@/assets/music.jpg";
 import dance from "@/assets/dance.jpg";
 import art from "@/assets/art.jpg";
@@ -38,8 +39,10 @@ const Courses = () => {
               <div className="aspect-[4/5] overflow-hidden">
                 <img
                   src={c.img}
-                  alt={c.title}
+                  alt={`${c.title} course at Anand Sangeet Mahavidyalaya — ${c.hindi} classes in Bihar`}
+                  title={`${c.title} — ${SITE_NAME_EN}`}
                   loading="lazy"
+                  decoding="async"
                   width={800}
                   height={800}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"

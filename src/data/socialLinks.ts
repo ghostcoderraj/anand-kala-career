@@ -1,4 +1,1 @@
-export const SOCIAL_LINKS = {
-  facebook: "https://www.facebook.com/share/1RqQbKQrYk/?mibextid=wwXIfr",
-  instagram: "https://www.instagram.com/anandsangitmahavidyalay?igsh=MXBhMW9vaXd0Y2ZjdA==",
-} as const;
+export { SOCIAL as SOCIAL_LINKS } from "@/lib/seo-config";

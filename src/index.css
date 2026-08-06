@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Fonts loaded via index.html preconnect + preload for better Core Web Vitals */
 
 @tailwind base;
 @tailwind components;

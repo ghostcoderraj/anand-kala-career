@@ -61,8 +61,13 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-primary-foreground/70">
               <li><a href="#about" className="hover:text-accent transition-colors">About</a></li>
               <li><a href="#courses" className="hover:text-accent transition-colors">Courses</a></li>
-              <li><a href="#careers" className="hover:text-accent transition-colors">Career Opportunities</a></li>
+              <li><a href="#director-message" className="hover:text-accent transition-colors">Leadership</a></li>
+              <li><a href="#gallery" className="hover:text-accent transition-colors">Gallery</a></li>
+              <li><a href="#news" className="hover:text-accent transition-colors">News</a></li>
+              <li><a href="#careers" className="hover:text-accent transition-colors">Careers</a></li>
               <li><a href="#admission" className="hover:text-accent transition-colors">Admission</a></li>
+              <li><a href="#faq" className="hover:text-accent transition-colors">FAQ</a></li>
+              <li><a href="#contact" className="hover:text-accent transition-colors">Contact</a></li>
             </ul>
           </div>
 

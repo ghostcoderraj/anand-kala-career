@@ -9,6 +9,9 @@ import { LogOut, Loader2, ShieldAlert } from "lucide-react";
 import ResourceManager, { FieldDef } from "@/components/admin/ResourceManager";
 import { toast } from "sonner";
 import { useSEO } from "@/lib/seo";
+import { PAGE_SEO } from "@/lib/seo-config";
+import { StructuredData } from "@/components/seo/StructuredData";
+import { breadcrumbSchema } from "@/lib/schema";
 
 const leadershipFields: FieldDef[] = [
   { name: "name", label: "Name", type: "text", required: true },
@@ -71,7 +74,7 @@ const Admin = () => {
   const nav = useNavigate();
   const { session, isAdmin, loading } = useAdmin();
 
-  useSEO({ title: "Admin Dashboard", path: "/admin", noIndex: true });
+  useSEO(PAGE_SEO.admin);
 
   useEffect(() => {
     if (!loading && !session) nav("/auth");
@@ -107,6 +110,12 @@ const Admin = () => {
 
   return (
     <main className="min-h-screen bg-gradient-soft">
+      <StructuredData
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Admin Dashboard", path: "/admin" },
+        ])}
+      />
       <header className="border-b bg-background/80 backdrop-blur sticky top-0 z-10">
         <div className="container flex items-center justify-between h-16">
           <div>

@@ -1,6 +1,7 @@
-import { MapPin, Phone, MessageCircle, Mail, Facebook, Instagram } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Mail, Facebook, Instagram, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SOCIAL_LINKS } from "@/data/socialLinks";
+import { CONTACT } from "@/lib/seo-config";
 
 const Contact = () => {
   return (
@@ -21,21 +22,32 @@ const Contact = () => {
                 <MapPin className="w-7 h-7 text-accent shrink-0" />
                 <div>
                   <h3 className="font-display font-bold text-xl mb-1">Address</h3>
-                  <p className="text-primary-foreground/85">Haspura I.T.I. Haspura, Itwan Road,<br />Haspura, Aurangabad,Bihar</p>
+                  <p className="text-primary-foreground/85">{CONTACT.fullAddress}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card border border-border rounded-2xl p-8 shadow-card">
+              <div className="flex gap-4">
+                <Clock className="w-7 h-7 text-primary shrink-0" aria-hidden="true" />
+                <div>
+                  <h3 className="font-display font-bold text-xl text-secondary mb-1">Opening Hours</h3>
+                  <p className="text-muted-foreground">Monday – Saturday: 9:00 AM – 5:00 PM</p>
+                  <p className="text-sm text-muted-foreground mt-1">Closed on Sundays and public holidays</p>
                 </div>
               </div>
             </div>
 
             <div className="bg-card border border-border rounded-2xl p-8 shadow-card">
               <div className="flex gap-4 mb-4">
-                <Mail className="w-7 h-7 text-primary shrink-0" />
+                <Mail className="w-7 h-7 text-primary shrink-0" aria-hidden="true" />
                 <div className="flex-1">
                   <h3 className="font-display font-bold text-xl text-secondary mb-3">Email</h3>
                   <a
-                    href="mailto:anandsangitmahavidyalaya@gmail.com"
+                    href={`mailto:${CONTACT.email}`}
                     className="block text-lg font-medium text-foreground hover:text-primary transition-colors break-all"
                   >
-                    anandsangitmahavidyalaya@gmail.com
+                    {CONTACT.email}
                   </a>
                 </div>
               </div>
@@ -97,7 +109,7 @@ const Contact = () => {
           <div className="rounded-2xl overflow-hidden shadow-card border border-border min-h-[400px]">
             <iframe
               title="Anand Sangeet Mahavidyalaya location"
-              src="https://www.google.com/maps?q=Haspura+ITI+Itwa+Road+Haspura&output=embed"
+              src={CONTACT.mapsEmbed}
               className="w-full h-full min-h-[400px]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

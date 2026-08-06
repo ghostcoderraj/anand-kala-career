@@ -1,0 +1,26 @@
+{
+  "name": "Anand Sangeet Mahavidyalaya",
+  "short_name": "Anand Sangeet",
+  "description": "Government recognized music college in Haspura, Aurangabad, Bihar — Music, Dance, Fine Arts & Yoga.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdf9f3",
+  "theme_color": "#7c2d12",
+  "lang": "hi",
+  "dir": "ltr",
+  "orientation": "portrait-primary",
+  "categories": ["education", "music"],
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

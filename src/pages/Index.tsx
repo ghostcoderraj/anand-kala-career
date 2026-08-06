@@ -3,7 +3,6 @@ import Hero from "@/components/site/Hero";
 import About from "@/components/site/About";
 import Courses from "@/components/site/Courses";
 import Recognition from "@/components/site/Recognition";
-
 import DirectorMessage from "@/components/site/DirectorMessage";
 import Careers from "@/components/site/Careers";
 import WhyUs from "@/components/site/WhyUs";
@@ -12,43 +11,30 @@ import Awards from "@/components/site/Awards";
 import News from "@/components/site/News";
 import Testimonials from "@/components/site/Testimonials";
 import Admission from "@/components/site/Admission";
+import FAQ from "@/components/site/FAQ";
 import Contact from "@/components/site/Contact";
 import Footer from "@/components/site/Footer";
 import FloatingWhatsApp from "@/components/site/FloatingWhatsApp";
 import BackgroundMusic from "@/components/site/BackgroundMusic";
 import QualifiedStudents from "@/components/site/QualifiedStudents";
 import Announcements from "@/components/site/Announcements";
+import { StructuredData } from "@/components/seo/StructuredData";
 import { useSEO } from "@/lib/seo";
+import { HOME_SEO } from "@/lib/seo-config";
+import { homePageGraph } from "@/lib/schema";
+import { FAQ_ITEMS } from "@/data/faq";
 
 const Index = () => {
-  useSEO({ path: "/" });
+  useSEO({
+    title: HOME_SEO.title,
+    description: HOME_SEO.description,
+    keywords: HOME_SEO.keywords,
+    path: HOME_SEO.path,
+  });
 
   return (
     <main className="min-h-screen bg-background">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "EducationalOrganization",
-            name: "आनंद संगीत महाविद्यालय",
-            alternateName: "Anand Sangeet Mahavidyalaya",
-            url: import.meta.env.VITE_SITE_URL || "https://anand-sangeet.vercel.app",
-            logo: `${import.meta.env.VITE_SITE_URL || "https://anand-sangeet.vercel.app"}/logo.png`,
-            description: "Government recognized degrees in Music, Dance, Fine Arts & Yoga in Haspura, Bihar.",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "Haspura I.T.I., Itwa Road",
-              addressLocality: "Haspura",
-              addressRegion: "Bihar",
-              addressCountry: "IN",
-            },
-            telephone: ["+91-9472626355", "+91-9153267412"],
-            areaServed: "Bihar, India",
-            knowsAbout: ["Indian Classical Music", "Dance", "Fine Arts", "Yoga"],
-          }),
-        }}
-      />
+      <StructuredData data={homePageGraph(FAQ_ITEMS)} />
       <BackgroundMusic />
       <Navbar />
       <Hero />
@@ -65,6 +51,7 @@ const Index = () => {
       <News />
       <Testimonials />
       <Admission />
+      <FAQ />
       <Contact />
       <Footer />
       <FloatingWhatsApp />

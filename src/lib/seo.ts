@@ -1,19 +1,28 @@
 import { useEffect } from "react";
+import {
+  SITE_NAME,
+  SITE_NAME_EN,
+  getSiteUrl,
+  HOME_SEO,
+  ALL_KEYWORDS,
+} from "@/lib/seo-config";
 
-const SITE_NAME = "आनंद संगीत महाविद्यालय";
-const DEFAULT_TITLE = "आनंद संगीत महाविद्यालय | Music, Dance, Fine Arts & Yoga College";
-const DEFAULT_DESCRIPTION =
-  "Government recognized degrees in Music, Dance, Fine Arts & Yoga. Career opportunities in teaching, KV, Railway & Armed Forces. Admission Open 2026 — Haspura, Bihar.";
+export const DEFAULT_TITLE = HOME_SEO.title;
+export const DEFAULT_DESCRIPTION = HOME_SEO.description;
 
-type SEOProps = {
+export type SEOProps = {
   title?: string;
   description?: string;
+  keywords?: string;
   path?: string;
   noIndex?: boolean;
   type?: "website" | "article";
+  ogImage?: string;
+  ogImageAlt?: string;
 };
 
 function upsertMeta(name: string, content: string, attr: "name" | "property" = "name") {
+  if (!content) return;
   let el = document.querySelector(`meta[${attr}="${name}"]`);
   if (!el) {
     el = document.createElement("meta");
@@ -36,35 +45,43 @@ function upsertLink(rel: string, href: string) {
 export function useSEO({
   title,
   description = DEFAULT_DESCRIPTION,
+  keywords = ALL_KEYWORDS,
   path = "/",
   noIndex = false,
   type = "website",
+  ogImage,
+  ogImageAlt = `${SITE_NAME_EN} — Music College in Bihar`,
 }: SEOProps = {}) {
-  const siteUrl = (import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/$/, "");
-  const pageTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
+  const siteUrl = getSiteUrl();
+  const pageTitle = title ?? DEFAULT_TITLE;
   const canonical = `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
-  const ogImage = `${siteUrl}/logo.png`;
+  const image = ogImage ?? `${siteUrl}/logo.png`;
 
   useEffect(() => {
     document.title = pageTitle;
 
     upsertMeta("description", description);
-    upsertMeta("robots", noIndex ? "noindex, nofollow" : "index, follow");
+    upsertMeta("keywords", keywords);
+    upsertMeta("author", SITE_NAME_EN);
+    upsertMeta("robots", noIndex ? "noindex, nofollow" : "index, follow, max-image-preview:large");
+    upsertMeta("googlebot", noIndex ? "noindex, nofollow" : "index, follow");
     upsertLink("canonical", canonical);
 
     upsertMeta("og:title", pageTitle, "property");
     upsertMeta("og:description", description, "property");
     upsertMeta("og:type", type, "property");
     upsertMeta("og:url", canonical, "property");
-    upsertMeta("og:image", ogImage, "property");
+    upsertMeta("og:image", image, "property");
+    upsertMeta("og:image:alt", ogImageAlt, "property");
     upsertMeta("og:site_name", SITE_NAME, "property");
     upsertMeta("og:locale", "hi_IN", "property");
 
     upsertMeta("twitter:card", "summary_large_image");
     upsertMeta("twitter:title", pageTitle);
     upsertMeta("twitter:description", description);
-    upsertMeta("twitter:image", ogImage);
-  }, [pageTitle, description, canonical, ogImage, noIndex, type]);
+    upsertMeta("twitter:image", image);
+    upsertMeta("twitter:image:alt", ogImageAlt);
+  }, [pageTitle, description, keywords, canonical, image, ogImageAlt, noIndex, type]);
 }
 
-export { DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_NAME };
+export { SITE_NAME, SITE_NAME_EN };

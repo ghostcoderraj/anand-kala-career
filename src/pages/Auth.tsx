@@ -7,6 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
 import { useSEO } from "@/lib/seo";
+import { PAGE_SEO } from "@/lib/seo-config";
+import { StructuredData } from "@/components/seo/StructuredData";
+import { breadcrumbSchema } from "@/lib/schema";
 
 const Auth = () => {
   const nav = useNavigate();
@@ -15,7 +18,7 @@ const Auth = () => {
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [loading, setLoading] = useState(false);
 
-  useSEO({ title: "Admin Login", path: "/auth", noIndex: true });
+  useSEO(PAGE_SEO.auth);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -50,6 +53,12 @@ const Auth = () => {
 
   return (
     <main className="min-h-screen grid place-items-center bg-gradient-soft p-4">
+      <StructuredData
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Admin Login", path: "/auth" },
+        ])}
+      />
       <Card className="w-full max-w-md p-8 shadow-warm">
         <h1 className="font-display text-2xl font-bold text-secondary text-center mb-2">Admin Portal</h1>
         <p className="text-sm text-muted-foreground text-center mb-6">

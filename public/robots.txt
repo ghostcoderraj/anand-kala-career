@@ -1,6 +1,9 @@
+# Anand Sangeet Mahavidyalaya — robots.txt
 User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /auth
+Crawl-delay: 1
 
-Sitemap: https://anand-sangeet.vercel.app/sitemap.xml
+Sitemap: https://anand-kala-career-main.vercel.app/sitemap.xml
+Host: anand-kala-career-main.vercel.app

@@ -6,7 +6,15 @@ const Hero = () => {
   return (
     <section id="top" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       <div className="absolute inset-0">
-        <img src={hero} alt="Indian classical art students" className="w-full h-full object-cover" width={1920} height={1080} />
+        <img
+          src={hero}
+          alt="Anand Sangeet Mahavidyalaya — classical music students at best music college in Bihar"
+          className="w-full h-full object-cover"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          decoding="async"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/70 to-secondary/30" />
         <div className="absolute inset-0 mandala-bg" />
       </div>
