@@ -1,5 +1,6 @@
-import { MapPin, Phone, MessageCircle, Mail } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Mail, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SOCIAL_LINKS } from "@/data/socialLinks";
 
 const Contact = () => {
   return (
@@ -67,6 +68,28 @@ const Contact = () => {
                     <MessageCircle className="mr-1 w-4 h-4" /> WhatsApp
                   </a>
                 </Button>
+              </div>
+
+              <div className="flex items-center gap-3 mt-6 pt-6 border-t border-border">
+                <span className="text-sm font-medium text-muted-foreground">Follow us</span>
+                <a
+                  href={SOCIAL_LINKS.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook — Anand Sangit Mahavidyalay"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary/10 text-secondary hover:bg-secondary hover:text-primary-foreground transition-colors"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a
+                  href={SOCIAL_LINKS.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram — anandsangitmahavidyalay"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary/10 text-secondary hover:bg-secondary hover:text-primary-foreground transition-colors"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
               </div>
             </div>
           </div>

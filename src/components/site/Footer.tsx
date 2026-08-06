@@ -1,4 +1,6 @@
 import logo from "@/assets/logo.png";
+import { Facebook, Instagram } from "lucide-react";
+import { SOCIAL_LINKS } from "@/data/socialLinks";
 
 const Footer = () => {
   return (
@@ -29,9 +31,29 @@ const Footer = () => {
                 <div className="text-primary-foreground/60 text-base">महाविद्यालय</div>
               </div>
             </div>
-            <p className="text-sm text-primary-foreground/70 leading-relaxed">
+            <p className="text-sm text-primary-foreground/70 leading-relaxed mb-4">
               A trusted center where Indian art transforms into recognized careers.
             </p>
+            <div className="flex items-center gap-3">
+              <a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook — Anand Sangit Mahavidyalay"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/10 text-primary-foreground hover:bg-accent hover:text-secondary transition-colors"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram — anandsangitmahavidyalay"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/10 text-primary-foreground hover:bg-accent hover:text-secondary transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
           </div>
 
           <div>
