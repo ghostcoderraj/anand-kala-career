@@ -79,7 +79,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-primary-foreground/10 text-center text-sm text-primary-foreground/50">
           © {new Date().getFullYear()} आनंद संगीत महाविद्यालय. All rights reserved.
           {" · "}
-          Built By <a href="https://www.rajaditya.in" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Aditya Raj</a>
+          Built By <a href="https://www.rajaditya.online" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Aditya Raj</a>
         </div>
       </div>
     </footer>
